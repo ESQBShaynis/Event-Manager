@@ -54,7 +54,7 @@
 			  <center><div class="card-body alteraboutus">
 			    <section>
 
-			    	<h5 class="card-title">Selamat Datang Admin</h5>
+			    	<h5 class="card-title">Selamat Datang <?=$_SESSION['name']; ?></h5>
 
 			    	<div class="card-deck altdeck">
     				  <div class="card alterdeck">
