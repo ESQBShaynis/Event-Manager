@@ -1,30 +1,9 @@
 <?php
-	//ambil nilai variabel error
-	if (isset($_GET['error']))
-	{
-		$error=$_GET['error'];
-	}
-	else
-	{
-		$error="";
-	}
-	//siapkan pesan kesalahan
-		$pesan="";
-	if ($error=="variabel_belum_diset")
-	{
-		$pesan="<h3>Maaf, anda harus mengakses halaman ini dari form.php</h3>";
-	}
-	if ($error=="id_anggota_kosong")
-	{
-		$pesan="<h3>Maaf, anda harus mengisi id anggota</h3>";
-	}
-	if ($error=="nama_harus_berupa_huruf")
-	{
-		$pesan="<h3>Maaf, nama harus berupa huruf</h3>";
-	}
-	if ($error=="jurusan_harus_berupa_huruf")
-	{
-		$pesan="<h3>Maaf, jurusan harus berupa huruf</h3>";
+	session_start();
+
+	if(!isset($_SESSION["login"])){
+		header("Location: login.php");
+		exit;
 	}
 ?>
 
@@ -62,7 +41,6 @@
 			<div class="card altaboutus altcard" id="aboutus">
 			  <center><div class="card-body alteraboutus">
 			    <section>
-			    	<?php echo $pesan ?>
 
 			    	<h5 class="card-title">Tambah Anggota</h5>
 

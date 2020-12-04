@@ -1,4 +1,15 @@
 <?php
+	session_start();
+
+	if(!isset($_SESSION["login"])){
+		header("Location: login.php");
+		exit;
+	}
+
+	require_once 'dbconnect.php';
+?>
+
+<?php
 	//ambil nilai variabel error
 	if (isset($_GET['error']))
 	{

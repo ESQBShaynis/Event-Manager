@@ -1,5 +1,15 @@
 <?php
+	session_start();
+
+	if(!isset($_SESSION["login"])){
+		header("Location: login.php");
+		exit;
+	}
+
 	require_once 'dbconnect.php';
+?>
+
+<?php
 
 	//koneksi tabel
 	$result=$con->query("select*from list_acara where id_acara='$_GET[id]'");

@@ -1,4 +1,11 @@
 <?php
+	session_start();
+
+	if(!isset($_SESSION["login"])){
+		header("Location: login.php");
+		exit;
+	}
+
 	require_once 'dbconnect.php';
 
 	//koneksi tabel
@@ -75,6 +82,13 @@
 			    				<label class="input-group-text"><b>Email*</b></label>
 			    			</div>
 			    			<input class="form-control" type="email" name="email" id="email" value="<?php echo $row['email'] ?>" required>
+			    		</div>
+
+			    		<div class="input-group mb-3">
+			    			<div class="input-group-prepend">
+			    		    	<label for="exampleFormControlFile1">Insert Profile Picture</label>
+			    		    </div>
+			    		    <input type="file" class="form-control-file" id="profilepicture" name="profilepicture" required="">
 			    		</div>
 
 			    		<input class="btn btn-primary" type="submit" value="Edit">

@@ -5,14 +5,12 @@
 		header("Location: login.php");
 		exit;
 	}
-
-	require_once 'dbconnect.php';
 ?>
 
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Data Anggota</title>
+		<title>Home</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/gaya.css">
@@ -31,11 +29,11 @@
 
 			  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 			    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-			      <li class="nav-item">
-			        <a class="nav-link" href="index.php">Home</a>
-			      </li>
 			      <li class="nav-item active">
-			        <a class="nav-link" href="view_anggota.php">Data Anggota <span class="sr-only">(current)</span></a>
+			        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="view_anggota.php">Data Anggota</a>
 			      </li>
 			      <li class="nav-item">
 			        <a class="nav-link" href="view_acara.php">Data Acara</a>
@@ -56,53 +54,34 @@
 			  <center><div class="card-body alteraboutus">
 			    <section>
 
-			    	<h5 class="card-title">Data Anggota</h5>
+			    	<h5 class="card-title">Selamat Datang Admin</h5>
 
-			    	<table class="table" style="text-align: center; display: inline-block; overflow: auto;">
-			    	  <thead>
-			    	    <tr>
-			    	      <th scope="col">ID</th>
-			    	      <th scope="col">Nama</th>
-			    	      <th scope="col">Jurusan</th>
-			    	      <th scope="col">Email</th>
-			    	      <th scope="col">Profile Picture</th>
-			    	      <th scope="col" colspan="2"><a href="add_anggota.php">Add</a></th>
-			    	    </tr>
-			    	  </thead>
-			    	  <tbody>
-			    	  	<?php
-			    	  		//koneksi tabel
-			    	  		$result=$con->query("select*from list_anggota");
-
-			    	  		//koneksi field
-			    	  		while($row=$result->fetch_assoc()){
-
-			    	  		if ($con->errno) {
-			    	  			die('Query Error : '.$con->errno.' - '.$con->error);
-			    	  		}
-			    	  	?>
-			    	    <tr>
-			    	      <th scope="row"><?php echo $row['id_anggota']; ?></th>
-			    	      <td><?php echo $row['nama']; ?></td>
-			    	      <td><?php echo $row['jurusan']; ?></td>
-			    	      <td><?php echo $row['email']; ?></td>
-			    	      <td><img src="<?php echo $row['profilepicture']; ?>" alt=""><?php echo $row['profilepicture']; ?></td>
-							<td>
-								<?php
-									echo "<a href='edit_anggota.php?id=$row[id_anggota]'>Edit</a>";
-								?>
-							</td>
-							<td>
-								<?php
-									echo "<a href='delete_anggota.php?id=$row[id_anggota]'>Delete</a>";
-								?>
-							</td>
-			    	    </tr>
-			    	    <?php 
-			    			} 
-			    		?>
-			    	  </tbody>
-			    	</table>
+			    	<div class="card-deck altdeck">
+    				  <div class="card alterdeck">
+    				    <div class="card-body">
+    				      <h5 class="card-title">Data Anggota</h5>
+    				    </div>
+    				    <div class="card-footer">
+    				      <small class="text-muted"><a href="view_anggota.php">Jump In</a></small>
+    				    </div>
+    				  </div>
+    				  <div class="card alterdeck">
+    				    <div class="card-body">
+    				      <h5 class="card-title">Data Acara</h5>
+    				    </div>
+    				    <div class="card-footer">
+    				      <small class="text-muted"><a href="view_acara.php">Jump In</a></small>
+    				    </div>
+    				  </div>
+    				  <div class="card alterdeck">
+    				    <div class="card-body">
+    				      <h5 class="card-title">Data Divisi</h5>
+    				    </div>
+    				    <div class="card-footer">
+    				      <small class="text-muted"><a href="view_divisi.php">Jump In</a></small>
+    				    </div>
+    				  </div>
+    				</div>
 			    </section>
 			  </div></center>
 			</div>

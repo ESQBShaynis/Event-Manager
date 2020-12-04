@@ -1,6 +1,12 @@
 <?php
+	session_start();
 
-require_once 'dbconnect.php';
+	if(!isset($_SESSION["login"])){
+		header("Location: login.php");
+		exit;
+	}
+
+	require_once 'dbconnect.php';
 ?>
 
 <!DOCTYPE html>
@@ -25,8 +31,20 @@ require_once 'dbconnect.php';
 
 			  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 			    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+			      <li class="nav-item">
+			        <a class="nav-link" href="index.php">Home</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="view_anggota.php">Data Anggota</a>
+			      </li>
 			      <li class="nav-item active">
-			        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+			        <a class="nav-link" href="view_acara.php">Data Acara <span class="sr-only">(current)</span></a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="view_divisi.php">Data Divisi</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="logout.php">Logout</a>
 			      </li>
 			    </ul>
 			  </div>

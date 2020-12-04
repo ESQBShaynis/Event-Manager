@@ -75,7 +75,7 @@
 		?>
 			<script>
 				alert ("Maaf, ID Anggota belum diisi");
-				window.location.href="view_anggota.php";
+				window.location.href="index.php";
 			</script>
 		<?php
 		die();
@@ -85,7 +85,7 @@
 		?>
 			<script>
 				alert ("Maaf, nama belum diisi");
-				window.location.href="view_anggota.php";
+				window.location.href="index.php";
 			</script>
 		<?php
 		die();
@@ -95,7 +95,7 @@
 		?>
 			<script>
 				alert ("Maaf, jurusan belum diisi");
-				window.location.href="view_anggota.php";
+				window.location.href="index.php";
 			</script>
 		<?php
 		die();
@@ -105,7 +105,7 @@
 		?>
 			<script>
 				alert ("Maaf, email belum diisi");
-				window.location.href="view_anggota.php";
+				window.location.href="index.php";
 			</script>
 		<?php
 		die();
@@ -115,7 +115,7 @@
 		?>
 			<script>
 				alert ("Maaf, gambar belum diupload");
-				window.location.href="view_anggota.php";
+				window.location.href="index.php";
 			</script>
 		<?php
 		die();
@@ -127,7 +127,7 @@
 			?>
 				<script>
 					alert ("Maaf, nama harus berupa huruf");
-					window.location.href="view_anggota.php";
+					window.location.href="index.php";
 				</script>
 			<?php
 			die();
@@ -137,7 +137,7 @@
 			?>
 				<script>
 					alert ("Maaf, jurusan harus berupa huruf");
-					window.location.href="view_anggota.php";
+					window.location.href="index.php";
 				</script>
 			<?php
 			die();
@@ -160,7 +160,7 @@
 		?>
 		<script>
 			alert ("Data Berhasil Ditambah");
-			window.location.href="view_anggota.php";
+			window.location.href="index.php";
 		</script>
 		<?php
 	}

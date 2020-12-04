@@ -2,13 +2,26 @@
 	require_once 'dbconnect.php';
 	
 	// buat prepared statements
-	$stmt = $con->prepare("UPDATE list_anggota SET nama=?, jurusan=?, email=? WHERE id_anggota=?");
+	$stmt = $con->prepare("UPDATE list_anggota SET nama=?, jurusan=?, email=?, profilepicture=? WHERE id_anggota=?");
 
 	// hubungkan "data" dengan prepared statements
-	$stmt->bind_param("sssi",$nama,$jurusan,$email,$id_anggota);
+	$stmt->bind_param("ssssi",$nama,$jurusan,$email,$profilepicture_save,$id_anggota);
 
 	//reciever
 	if (isset($_POST['id_anggota']) AND isset($_POST['nama'])) {
+
+		if (isset($_FILES['profilepicture']['tmp_name'])) {
+			$file=$_FILES['profilepicture']['tmp_name'];
+			$profilepicture= addslashes(file_get_contents($_FILES['profilepicture']['tmp_name']));
+			$profilepicture_name= addslashes($_FILES['profilepicture']['name']);
+			move_uploaded_file($_FILES["profilepicture"]["tmp_name"],"photos/" . $_FILES["profilepicture"]["name"]);
+			$profilepicture_save ="photos/" . $_FILES["profilepicture"]["name"];
+		}
+
+		/*$target_dir = "assets/images/";
+		$target_file = $target_dir . basename($_FILES["profilepicture"]["name"]);
+		$profilepicture="assets/images/".$_FILES["profilepicture"]["name"];
+		move_uploaded_file($_FILES["profilepicture"]["tmp_name"], $target_file);*/
 		
 		$id_anggota=$_POST['id_anggota'];
 		$nama=$_POST['nama'];
@@ -23,16 +36,16 @@
 		?>
 			<script>
 				alert ("Maaf, variabel belum di set");
-				window.location.href="view_anggota.php";
+				window.location.href="index.php";
 			</script>
-			<?php
+		<?php
 	
 	} if(empty($id_anggota)) {
 		
 		?>
 			<script>
 				alert ("Maaf, ID Anggota belum diisi");
-				window.location.href="view_anggota.php";
+				window.location.href="index.php";
 			</script>
 		<?php
 		die();
@@ -42,7 +55,7 @@
 		?>
 			<script>
 				alert ("Maaf, nama belum diisi");
-				window.location.href="view_anggota.php";
+				window.location.href="index.php";
 			</script>
 		<?php
 		die();
@@ -52,7 +65,7 @@
 		?>
 			<script>
 				alert ("Maaf, jurusan belum diisi");
-				window.location.href="view_anggota.php";
+				window.location.href="index.php";
 			</script>
 		<?php
 		die();
@@ -62,7 +75,7 @@
 		?>
 			<script>
 				alert ("Maaf, email belum diisi");
-				window.location.href="view_anggota.php";
+				window.location.href="index.php";
 			</script>
 		<?php
 		die();
@@ -73,7 +86,7 @@
 			?>
 				<script>
 					alert ("Maaf, nama harus berupa huruf");
-					window.location.href="view_anggota.php";
+					window.location.href="index.php";
 				</script>
 			<?php
 			die();
@@ -83,7 +96,7 @@
 			?>
 				<script>
 					alert ("Maaf, jurusan harus berupa huruf");
-					window.location.href="view_anggota.php";
+					window.location.href="index.php";
 				</script>
 			<?php
 			die();
@@ -102,14 +115,14 @@
 		?>
 		<script>
 			alert ("Data Tidak Berhasil Diedit");
-			window.location.href="view_anggota.php";
+			window.location.href="index.php";
 		</script>
 		<?php
 	} else {
 		?>
 		<script>
 			alert ("Data Berhasil Diedit");
-			window.location.href="view_anggota.php";
+			window.location.href="index.php";
 		</script>
 		<?php
 	}
