@@ -14,8 +14,9 @@
 			$file=$_FILES['profilepicture']['tmp_name'];
 			$profilepicture= addslashes(file_get_contents($_FILES['profilepicture']['tmp_name']));
 			$profilepicture_name= addslashes($_FILES['profilepicture']['name']);
-			move_uploaded_file($_FILES["profilepicture"]["tmp_name"],"photos/" . $_FILES["profilepicture"]["name"]);
-			$profilepicture_save ="photos/" . $_FILES["profilepicture"]["name"];
+			move_uploaded_file($_FILES["profilepicture"]["tmp_name"],"assets/images/" . $_FILES["profilepicture"]["name"]);
+			$profilepicture_save ="assets/images/" . $_FILES["profilepicture"]["name"];
+			
 		}
 
 		/*$target_dir = "assets/images/";
